@@ -1,0 +1,150 @@
+.login-panel{
+    box-shadow: 2px 2px 30px 2px black;
+    background-color:#f0f0f0;
+    margin: 2% auto;
+    width: 45%;
+    height: auto;
+    padding: 0 0 20px 10px;
+
+}
+.panel-heading-override{
+    padding: 10px 0;
+}
+.panel-heading-override label {
+    font-variant: small-caps;
+    font-size: medium;
+    font-style: italic;
+    font-weight: unset;
+    background-color: #0094d9;
+    padding: 5px 6px 5px 15px;
+}
+.login-panel-label {
+    width:90%;
+    color:black;
+    margin:1%;
+}
+.login-panel-textBox{
+    margin: 1px 1%;
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+
+}
+.error-label{
+    color: red;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 2%;
+
+}
+.error-panel{
+    color:red;
+    margin: 1%;
+}
+.default-login-button{
+    border: none;
+    color: white;
+    font-variant: small-caps;
+    font-size: medium;
+    font-style: italic;
+    font-weight: unset;
+    background-color: #0094d9;
+    padding: 5px 6px 5px 15px;
+    margin: 4px -4px 0 0;
+
+}
+.default-login-button:hover{
+    background-color:#419641;
+}
+/*--------------------*/
+
+
+
+/*#signInMainPanel{
+    text-align: center;
+    margin:20% auto;
+    background-color: green;
+
+}
+#signInShowPanelButton{
+    font-size: large;
+    border: solid 1px white;
+    padding: 4px 2px;
+    font-variant: small-caps;
+    text-align: right;
+    width: 100px;
+    color:orange;
+    vertical-align: middle;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#signInShowPanelButton:hover{
+    font-size: large;
+    background-color: #007bc6;
+    color:#908C8C;
+    border:none;
+    cursor: pointer;
+    text-shadow: -4px 14px 4px #000;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#masterLoginFrom{
+    display: block;
+    background-color: red;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+#topWrapperPanel{
+    display: block;
+    background-color: blue;
+    width: 99%;
+    height: 50%;
+    margin: 0 auto;
+
+}
+#signInLogoBorderPanel{
+    height: 104px;
+    width: 104px;
+    border: solid 2px #3d7abf;
+    margin: 10% auto;
+    border-radius: 50%;
+    
+}
+
+
+
+#signInLogoBorderPanel label{
+    display: block;
+    margin: 35% 1% 0 1%;
+    font-size: medium;
+    text-shadow: 4px 2px 2px black;
+}
+#signInLogoBorderPanel :hover{
+    background-color: #168747;
+    cursor: pointer;
+}
+
+#signInLogoBorderPanel :hover label{
+    font-size:large;
+    margin: 35% 2% 0 2%;
+}
+#mainLoginForm{
+    display: none;
+}
+#bottomWrapperPanel{
+    display: block;
+    background-color: green;
+    width: 99%;
+    height: 50%;
+    margin: 0 auto;
+}
+

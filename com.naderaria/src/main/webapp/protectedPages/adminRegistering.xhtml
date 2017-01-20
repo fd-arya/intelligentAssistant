@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/WEB-INF/templates/basePage.xhtml" >
+    <ui:define name="headPanle" >
+        <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/loginFormStyle.css" />
+        <script type="text/javascript" src="#{request.getContextPath()}/resources/js/LoginFormJs.js"></script>
+
+
+    </ui:define>
+    <ui:define name="titlePanel" >AdminRegistering_PAGE</ui:define>
+    <ui:define name="panelNameLabel" >Registering Form </ui:define>
+    <ui:define name="centerPanel" >
+        <section class="mainForm" >
+            <section class="default-Section-block" >
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblFirstName" value="first Name :" for="txtFirstName"/>
+                    <h:outputText id="txtFirstName" title="firstName"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblLastName" value="last Name :" for="txtLastName"/>
+                    <h:outputText id="txtLastName" title="lastName"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblGender" value="gender :" for="somGender"/>
+                    <h:selectOneMenu id="somGender" value="#{gender.values}"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblBirthCity" value="birth City :" for="txtBirthCity"/>
+                    <h:outputText  id="txtBirthCity" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblBirthDate" value="birth Date :"/>
+
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblUserImage" value="user Image : " for="infUserImage"/>
+                    <h:inputFile id="infUserImage" alt="User Image " />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblLanguage" value="language :" for="somLanguages"/>
+                    <h:selectOneMenu id="somLanguages" value="#{language.values}"/>
+                </section>
+                <hr/>
+            </section>
+            <section class="default-Section-block" >
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblTitle" value="title :" for="txtTitle" />
+                    <h:outputText id="txtTitle" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblCountry" value="country :" for="txtCountry"/>
+                    <h:outputText  id="txtCountry"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblCity" value="city :" for="txtCity"/>
+                    <h:outputText id="txtCity" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblStreet" value="street :" for="txtStreet"/>
+                    <h:outputText id="txtStreet" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblAlley" value="alley :" for="txtAlley"/>
+                    <h:outputText id="txtAlley" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblZipCode" value="zip Code :" for="txtZipCode"/>
+                    <h:outputText id="txtZipCode"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblNo" value="no :" for="txtNo"/>
+                    <h:outputText id="txtNo" />
+                </section>
+            </section>
+            <section class="default-Section-block" >
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblPhone" value="phone :" for="txtPhone"/>
+                    <h:outputText id="txtPhone" />
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblCell" value="cell :" for="txtCell"/>
+                    <h:outputText id="txtCell"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblEmail" value="email Address :" for="txtEmail"/>
+                    <h:outputText id="txtEmail"/>
+                </section>
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblWebSite" value="webSite Address :" for="txtWebSite"/>
+                    <h:outputText id="txtWebSite"/>
+                </section>
+            </section>
+            <section class="default-input-inline" >
+                <h:button id="btnSaveAdmin" value="Save Admin" />
+                <h:button id="btnCanselSave" value="cansel"/>
+            </section>
+        </section>
+    </ui:define>
+</ui:composition>
+</html>
