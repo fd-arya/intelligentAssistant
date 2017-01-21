@@ -19,15 +19,16 @@
     <ui:define name="centerPanel">
        <div class="login-panel container-fluid">
            <div class="row" >
+               <h:form id="loginPageMainForm" >
                <div class="panel-heading-override col-xs-12 col-sm-12 col-md-12 col-lg-12">
                    <h:outputLabel value="Login Panel" />
                </div>
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                   <h:inputText id="txtUserName" value="" styleClass="form-control login-panel-textBox pull-left" p:placeholder="UserName"/>
+                   <h:inputText id="txtUserName" value="#{loginPage.userNamePassword.userName}" styleClass="form-control login-panel-textBox pull-left" p:placeholder="UserName"/>
                    <h:outputText name="lblUserNameError" value="*"  styleClass="error-label pull-left"/>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                   <h:inputSecret name="txtUserPassword" value="" styleClass="form-control login-panel-textBox pull-left" required="true" p:placeholder="Password"/>
+                   <h:inputSecret name="txtUserPassword" value="#{loginPage.userNamePassword.password}" styleClass="form-control login-panel-textBox pull-left" required="true" p:placeholder="Password"/>
                    <h:outputText  name="lblUserPassword" value="*"  styleClass="error-label pull-left"/>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -39,11 +40,12 @@
                    </h:outputLabel>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                   <h:button id="login" value="Login"  styleClass="default-transition default-login-button pull-right"/>
+                   <h:commandButton id="btnlogin" value="login" styleClass="default-transition default-login-button pull-right" action="#{loginPage.logined()}"/>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                    <h:button id="forget" value="Forget ?" styleClass="default-transition default-login-button pull-right"/>
                </div>
+               </h:form>
            </div>
        </div>
     </ui:define>

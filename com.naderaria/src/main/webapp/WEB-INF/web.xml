@@ -9,7 +9,4 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
-  <listener>
-    <listener-class>com.naderaria.intelligentAssistant.view.publicPages.ApplicationBean</listener-class>
-  </listener>
-</web-app>
+ </web-app>

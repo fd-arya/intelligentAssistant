@@ -18,7 +18,7 @@ public class FacesContextHelper implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	public  HttpServletRequest getRequest(){
+	public HttpServletRequest getRequest(){
 
         return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
     }
@@ -29,7 +29,7 @@ public class FacesContextHelper implements Serializable {
     }
 
 
-    public ExternalContext getContext(){
+    public ExternalContext getContext() {
 
         return FacesContext.getCurrentInstance().getExternalContext();
     }
