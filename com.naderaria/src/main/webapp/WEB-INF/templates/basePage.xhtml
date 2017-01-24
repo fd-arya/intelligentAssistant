@@ -1,14 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" >
-<f:view contentType="text/html" locale="#{facesContextHelper.locale}"  >
-   <!-- <f:loadBundle var="msg" basename="com.naderaria.intelligentAssistant.view.resources.language"/>-->
-
-
-
+<f:view locale="#{facesContextHelper.locale}"  encoding="UTF-8" contentType="text/html">
+ <f:loadBundle var="msg" basename="language"/>
         <h:head>
+            <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/bootstrap.min.css" />
             <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/bootstrap.min.css.map" />
@@ -32,7 +31,7 @@
                         <div id="topPanel" class="topPanel zeroPaddingAndMargin">
                             <div class="pull-left text-left">
                                 <ui:insert name="infoPanelBar"/>
-                                <h:outputText id="spnTimeAndDate"  title="Time And Date " value="14:50:30 pm 1365/02/08"/>
+                                <h:outputText id="spnTimeAndDate"  title="#{msg.spnTimeAndDate} " value="14:50:30 pm 1365/02/08"/>
                             </div>
                             <div class="pull-right text-right">
                                 <ui:insert name="actionButtonsBar"/>

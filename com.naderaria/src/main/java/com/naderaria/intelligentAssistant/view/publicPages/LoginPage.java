@@ -80,9 +80,9 @@ public class LoginPage implements Serializable {
 	private boolean isDefaultUser(){
 
 		Locale locale = Locale.getDefault();
-		ResourceBundle resourceBundle = ResourceBundle.getBundle( "resourceBundle" , locale );
-		String defaultUserName = resourceBundle.getString( "DefaultUserName" );
-		String defaultPassword = resourceBundle.getString( "DefaultPassword" );
+		ResourceBundle resourceBundle = ResourceBundle.getBundle( "language" , locale );
+		String defaultUserName = resourceBundle.getString( "defaultUserName" );
+		String defaultPassword = resourceBundle.getString( "defaultPassword" );
 
 		return ( getUserNamePassword().getUserName().equals(defaultUserName) && getUserNamePassword().getPassword().equals( defaultPassword ) );
 	}
