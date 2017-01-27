@@ -5,99 +5,97 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-<ui:composition template="/WEB-INF/templates/basePage.xhtml" >
-    <ui:define name="headPanle" >
-        <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/loginFormStyle.css" />
-        <script type="text/javascript" src="#{request.getContextPath()}/resources/js/LoginFormJs.js"></script>
-
-
-    </ui:define>
-    <ui:define name="titlePanel" >AdminRegistering_PAGE</ui:define>
-    <ui:define name="panelNameLabel" >Registering Form </ui:define>
+<ui:composition template="/WEB-INF/templates/basePage.xhtml">
+    <ui:define name="titlePanel" >#{msg.adminPageTitle}</ui:define>
+    <ui:define name="panelNameLabel" >#{msg.adminPanelName}</ui:define>
     <ui:define name="centerPanel" >
         <section class="mainForm" >
             <section class="default-Section-block" >
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblFirstName" value="first Name :" for="txtFirstName"/>
-                    <h:outputText id="txtFirstName" title="firstName"/>
+                    <h:outputLabel id="lblFirstName" value="#{msg.firstName}" for="txtFirstName"/>
+                    <h:inputText id="txtFirstName" title="#{msg.firstName}" value="#{adminRegisteringPage.admin.firstName}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblLastName" value="last Name :" for="txtLastName"/>
-                    <h:outputText id="txtLastName" title="lastName"/>
+                    <h:outputLabel id="lblLastName" value="#{msg.lastName}" for="txtLastName"/>
+                    <h:inputText id="txtLastName" title="#{msg.lastName}" value="#{adminRegisteringPage.admin.lastName}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblGender" value="gender :" for="somGender"/>
-                    <h:selectOneMenu id="somGender" value="#{gender.values}"/>
+                    <h:outputLabel id="lblGender" value="#{msg.gender}" for="somGender"/>
+                    <h:selectOneMenu id="somGender" value="#{adminRegisteringPage.gender}" >
+                        <f:selectItems id="sciGender" value="#{adminRegisteringPage.gender}"/>
+                    </h:selectOneMenu>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblBirthCity" value="birth City :" for="txtBirthCity"/>
-                    <h:outputText  id="txtBirthCity" />
+                    <h:outputLabel id="lblBirthCity" value="#{msg.birthCity}" for="txtBirthCity"/>
+                    <h:inputText  id="txtBirthCity" title="#{msg.birthCity}" value="#{adminRegisteringPage.admin.birthCity}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblBirthDate" value="birth Date :"/>
+                    <h:outputLabel id="lblBirthDate" value="#{msg.birthDate}"/>
 
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblUserImage" value="user Image : " for="infUserImage"/>
-                    <h:inputFile id="infUserImage" alt="User Image " />
+                    <h:outputLabel id="lblUserImage" value="#{msg.userImage}" for="infUserImage"/>
+                    <h:inputFile id="infUserImage" alt="#{msg.userImage}" value="#{adminRegisteringPage.admin.image}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblLanguage" value="language :" for="somLanguages"/>
-                    <h:selectOneMenu id="somLanguages" value="#{language.values}"/>
+                    <h:outputLabel id="lblLanguage" value="#{msg.language}" for="somLanguages"/>
+                    <h:selectOneMenu id="somLanguages" >
+                        <f:selectItems id="sciLanguage" value="#{adminRegisteringPage.language}"/>
+                    </h:selectOneMenu>
                 </section>
                 <hr/>
             </section>
             <section class="default-Section-block" >
-                <section class="default-input-inline" >
+                <!--<section class="default-input-inline" >
                     <h:outputLabel id="lblTitle" value="title :" for="txtTitle" />
                     <h:outputText id="txtTitle" />
+                </section>-->
+                <section class="default-input-inline" >
+                    <h:outputLabel id="lblCountry" value="#{msg.country}" for="txtCountry"/>
+                    <h:inputText  id="txtCountry" title="#{msg.country}" value="#{adminRegisteringPage.admin.address.country}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblCountry" value="country :" for="txtCountry"/>
-                    <h:outputText  id="txtCountry"/>
+                    <h:outputLabel id="lblCity" value="#{msg.city}" for="txtCity"/>
+                    <h:inputText id="txtCity" title="#{msg.city}" value="#{adminRegisteringPage.admin.address.city}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblCity" value="city :" for="txtCity"/>
-                    <h:outputText id="txtCity" />
+                    <h:outputLabel id="lblStreet" value="#{msg.street}" for="txtStreet"/>
+                    <h:inputText id="txtStreet" title="#{msg.street}" value="#{adminRegisteringPage.admin.address.street}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblStreet" value="street :" for="txtStreet"/>
-                    <h:outputText id="txtStreet" />
+                    <h:outputLabel id="lblAlley" value="#{msg.alley}" for="txtAlley"/>
+                    <h:inputText id="txtAlley" title="#{msg.alley}" value="#{adminRegisteringPage.admin.address.alley}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblAlley" value="alley :" for="txtAlley"/>
-                    <h:outputText id="txtAlley" />
+                    <h:outputLabel id="lblZipCode" value="#{msg.zipCode}" for="txtZipCode"/>
+                    <h:inputText id="txtZipCode" title="#{msg.zipCode}" value="#{adminRegisteringPage.admin.address.zipCode}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblZipCode" value="zip Code :" for="txtZipCode"/>
-                    <h:outputText id="txtZipCode"/>
-                </section>
-                <section class="default-input-inline" >
-                    <h:outputLabel id="lblNo" value="no :" for="txtNo"/>
-                    <h:outputText id="txtNo" />
+                    <h:outputLabel id="lblNo" value="#{msg.no}" for="txtNo"/>
+                    <h:inputText id="txtNo" title="#{msg.no}" value="#{adminRegisteringPage.admin.address.no}"/>
                 </section>
             </section>
             <section class="default-Section-block" >
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblPhone" value="phone :" for="txtPhone"/>
-                    <h:outputText id="txtPhone" />
+                    <h:outputLabel id="lblPhone" value="#{msg.phone}" for="txtPhone"/>
+                    <h:inputText id="txtPhone" title="#{msg.phone}" value="#{adminRegisteringPage.admin.callInfo.phone}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblCell" value="cell :" for="txtCell"/>
-                    <h:outputText id="txtCell"/>
+                    <h:outputLabel id="lblCell" value="#{msg.cell}" for="txtCell"/>
+                    <h:inputText id="txtCell" title="#{msg.cell}" value="#{adminRegisteringPage.admin.callInfo.cell}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblEmail" value="email Address :" for="txtEmail"/>
-                    <h:outputText id="txtEmail"/>
+                    <h:outputLabel id="lblEmail" value="#{msg.emailAddress}" for="txtEmail"/>
+                    <h:inputText id="txtEmail" title="#{msg.emailAddress}" value="#{adminRegisteringPage.admin.callInfo.email}"/>
                 </section>
                 <section class="default-input-inline" >
-                    <h:outputLabel id="lblWebSite" value="webSite Address :" for="txtWebSite"/>
-                    <h:outputText id="txtWebSite"/>
+                    <h:outputLabel id="lblWebSite" value="#{msg.webSiteAddress}" for="txtWebSite"/>
+                    <h:inputText id="txtWebSite" title="#{msg.webSiteAddress}" value="#{adminRegisteringPage.admin.callInfo.webSite}"/>
                 </section>
             </section>
             <section class="default-input-inline" >
-                <h:button id="btnSaveAdmin" value="Save Admin" />
-                <h:button id="btnCanselSave" value="cansel"/>
+                <h:commandButton id="btnSaveAdmin"  value="#{msg.btnSave}" title="#{msg.btnSave}" action="#{adminRegisteringPage.saveAdmin()}"/>
+                <h:commandButton id="btnCancelSave" value="#{msg.btnCancel}" title="#{msg.btnCancel}" action="#{adminRegisteringPage.cancel()}"/>
             </section>
         </section>
     </ui:define>

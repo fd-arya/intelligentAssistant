@@ -1,13 +1,13 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" >
-<f:view locale="#{facesContextHelper.locale}"  encoding="UTF-8" contentType="text/html">
- <f:loadBundle var="msg" basename="language"/>
+    <f:view locale="#{facesContextHelper.locale}"  encoding="UTF-8" contentType="text/html" >
+        <f:loadBundle var="msg" basename="language" />
         <h:head>
-            <meta charset="UTF-8" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/bootstrap.min.css" />
             <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/bootstrap.min.css.map" />
@@ -22,6 +22,7 @@
             <title>IntelligentAssistant-<ui:insert name="titlePanel"/></title>
         </h:head>
         <h:body>
+           <h:form id="baseForm">
            <section class="container-fluid" >
                 <section class="row">
                     <section id="headerMainPanel" class="col-md-12">
@@ -45,7 +46,7 @@
                     </section>
                     <section id="footerMainPanel" class="col-md-12">
                         <section  class="container-fluid">
-                            <section id="menuItems" class="row hiddenItems" onmouseleave="closeMenuItemsList()">
+                            <section id="menuItems" class="row hiddenItems" >
                                 <section  class="col-md-12">
                                     <!--<section id="menuItemsHeader">
                                         <h:outputText id="menuItemsTilte" value="Items" styleClass="pull-left"/>
@@ -203,7 +204,7 @@
              </nav>
          </section>
      </section>-->
-
+           </h:form>
         </h:body>
     </f:view>
 </html>

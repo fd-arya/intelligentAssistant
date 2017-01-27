@@ -2,13 +2,9 @@ package com.naderaria.intelligentAssistant.view.publicPages;
 
 import java.io.Serializable;
 import java.util.*;
-
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.servlet.ServletRequestAttributeListener;
-
 import com.naderaria.intelligentAssistant.business.exceptions.BusinessExceptionManagement;
 import com.naderaria.intelligentAssistant.business.service.internal.interfaces.ILocalGeneralService;
 import com.naderaria.intelligentAssistant.dao.interfaces.IQueryNames;
@@ -59,22 +55,22 @@ public class LoginPage implements Serializable {
 
 
 		try{
-			if( isDefaultUser() ){	getFacesContextHelper().getContext().redirect( IPagesAddress.ADMIN_INDEX_PAGE ); }
+			if( isDefaultUser() ){	return IPagesAddress.ADMIN_REGISTERING_PAGE+IPagesAddress.REDIRECT; }
 			Login findLogin = findUser();
 			if( findLogin != null ){
 				if( findLogin.getUser() instanceof Admin ){
-					getFacesContextHelper().getContext().redirect( IPagesAddress.ADMIN_INDEX_PAGE );
+					return IPagesAddress.ADMIN_INDEX_PAGE+IPagesAddress.REDIRECT;
 				}else {
-					getFacesContextHelper().getContext().redirect( IPagesAddress.USER_INDEX_PAGE );
+					return IPagesAddress.USER_INDEX_PAGE+IPagesAddress.REDIRECT;
 				}
 			}else{
-				getFacesContextHelper().getContext().redirect( IPagesAddress.ERROR_PAGE );
+				return IPagesAddress.ERROR_PAGE+IPagesAddress.REDIRECT;
 			}
 
 		}catch ( Exception e ){
 			BusinessExceptionManagement.saveException( e );
 		}
-		return "test";
+		return IPagesAddress.ERROR_PAGE+IPagesAddress.REDIRECT;
 	}
 
 	private boolean isDefaultUser(){
@@ -83,7 +79,6 @@ public class LoginPage implements Serializable {
 		ResourceBundle resourceBundle = ResourceBundle.getBundle( "language" , locale );
 		String defaultUserName = resourceBundle.getString( "defaultUserName" );
 		String defaultPassword = resourceBundle.getString( "defaultPassword" );
-
 		return ( getUserNamePassword().getUserName().equals(defaultUserName) && getUserNamePassword().getPassword().equals( defaultPassword ) );
 	}
 
