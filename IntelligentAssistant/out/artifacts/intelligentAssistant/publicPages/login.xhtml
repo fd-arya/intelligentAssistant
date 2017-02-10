@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/WEB-INF/templates/basePage.xhtml">
+
+    <ui:define name="headPanle">
+        <link type="text/css" rel="stylesheet" href="#{request.getContextPath()}/resources/css/loginFormStyle.css" />
+        <script type="text/javascript" src="#{request.getContextPath()}/resources/js/LoginFormJs.js"></script>
+
+
+    </ui:define>
+    <ui:define name="titlePanel">#{msg.loginPage}</ui:define>
+    <ui:define name="panelNameLabel">#{msg.signInForm}</ui:define>
+    <ui:define name="centerPanel">
+       <div class="login-panel container-fluid">
+           <div class="row" >
+
+               <div class="panel-heading-override col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:outputLabel value="#{msg.loginPanel}" />
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:inputText id="txtUserName" value="#{loginPage.userNamePassword.userName}" styleClass="form-control login-panel-textBox pull-left" p:placeholder="#{msg.userName}"/>
+                   <h:outputText name="lblUserNameError" value="*"  styleClass="error-label pull-left"/>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:inputSecret name="txtUserPassword" value="#{loginPage.userNamePassword.password}" styleClass="form-control login-panel-textBox pull-left" required="true" p:placeholder="#{msg.password}"/>
+                   <h:outputText  name="lblUserPasswordError" value="*"  styleClass="error-label pull-left"/>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:outputLabel name="lblMasterError" value="#{msg.masterError}"  styleClass="error-panel pull-left"/>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:outputLabel name="lblRemmberMe" value="#{msg.remmberMe}" for="chkRemmberMe" styleClass="login-panel-label ">
+                       <h:selectBooleanCheckbox id="chkRemmberMe" name="chkRemmberMe"  label="RemmberMe" styleClass="pull-left" title="RemmberMe"/>
+                   </h:outputLabel>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:commandButton id="btnlogin" value="#{msg.login}" styleClass="default-transition default-login-button pull-right" action="#{loginPage.logined()}"/>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h:button id="forget" value="#{msg.forget}" styleClass="default-transition default-login-button pull-right"/>
+               </div>
+
+           </div>
+       </div>
+    </ui:define>
+</ui:composition>
+</html>

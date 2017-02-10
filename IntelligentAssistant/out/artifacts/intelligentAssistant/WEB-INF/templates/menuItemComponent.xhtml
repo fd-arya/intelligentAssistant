@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      lang="en">
+<f:view locale="#{facesContextHelper.locale}" encoding="utf-8" contentType="text/html">
+    <composite:interface>
+        <composite:attribute name="labelValue"/>
+        <composite:attribute name="labelTitle"/>
+        <composite:attribute name="labelStyle"/>
+        <composite:attribute name="iconName"/>
+        <composite:attribute name="iconTitle"/>
+        <composite:attribute name="iconStyle"/>
+        <composite:attribute name="itemStyle"/>
+        <composite:attribute name="itemRole"/>
+        <composite:attribute name="target"/>
+        <composite:attribute name="active"/>
+        <composite:attribute name="clickAction" method-signature="java.lang.String click()"/>
+    </composite:interface>
+    <composite:implementation>
+        <li  class="#{cc.attrs.itemStyle}" role="#{cc.attrs.itemRole}" onclick="#{cc.attrs.clickAction}">
+            <h:graphicImage  library="images" name="#{cc.attrs.iconName}" title="#{cc.attrs.iconTitle}" styleClass="#{cc.attrs.iconStyle}"/>
+            <h:outputLabel value="#{cc.attrs.labelValue}" title="#{cc.attrs.labelTitle}" styleClass="#{cc.attrs.labelStyle}"/>
+        </li>
+    </composite:implementation>
+
+</f:view>
+</html>

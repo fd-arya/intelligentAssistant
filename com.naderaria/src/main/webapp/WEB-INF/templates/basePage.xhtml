@@ -20,190 +20,146 @@
             <script type="text/javascript" src="#{request.getContextPath()}/resources/js/basePageJs.js"></script>
             <ui:insert name="headPanle"/>
             <title>IntelligentAssistant-<ui:insert name="titlePanel"/></title>
+            <script type="text/javascript">
+            $( document ).ready(function() {
+            	createButtonList();
+            });
+            </script>
         </h:head>
         <h:body>
            <h:form id="baseForm">
-           <section class="container-fluid" >
-                <section class="row">
-                    <section id="headerMainPanel" class="col-md-12">
-                        <div class="progress topProgress" >
-                            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ></div>
-                        </div>
-                        <div id="topPanel" class="topPanel zeroPaddingAndMargin">
-                            <div class="pull-left text-left">
-                                <ui:insert name="infoPanelBar"/>
-                                <h:outputText id="spnTimeAndDate"  title="#{msg.spnTimeAndDate} " value="14:50:30 pm 1365/02/08"/>
-                            </div>
-                            <div class="pull-right text-right">
-                                <ui:insert name="actionButtonsBar"/>
-                                <h:outputLink hreflang="http://www.google.com"  value="logOut" title="logOut">LogOut</h:outputLink>
-                                <span class="glyphicon glyphicon-resize-full" aria-hidden="true" data-toggle="fullscreen"></span>
-                            </div>
-                        </div>
-                    </section>
-                    <section id="centerMasterPanel" class="col-md-12">
-                        <ui:insert name="centerPanel"/>
-                    </section>
-                    <section id="footerMainPanel" class="col-md-12">
-                        <section  class="container-fluid">
-                            <section id="menuItems" class="row hiddenItems" >
-                                <section  class="col-md-12">
-                                    <!--<section id="menuItemsHeader">
-                                        <h:outputText id="menuItemsTilte" value="Items" styleClass="pull-left"/>
-                                    </section>
-                                    <nav id="menuListItems">
-                                        <ul id="homeSubMenu"  data-toggle="subMenu">
-                                            <ui:repeat var="homeItems" value="Home">
-                                                li>#{homeItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="accountSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="accountItems" value="Account}">
-                                            <li>#{accountItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="medicineSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="medicineItems" value="Medicine">
-                                            <li>#{medicineItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="financialSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="financialItems" value="Financial}">
-                                            <li>#{financialItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="scrumSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="scrumItems" value="Scrum}">
-                                            <li>#{scrumItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="reportsSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="reportsItems" value="Reports}">
-                                            <li>#{reportsItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                    <ul id="remindersSubMenu"  data-toggle="subMenu">
-                                        <ui:repeat var="rimindersItems" value="Reminder}">
-                                            <li>#{rimindersItems}</li>
-                                        </ui:repeat>
-                                    </ul>
-                                </nav>-->
-                            </section>
-                        </section>
-                        <section class="row">
-                            <!--<nav id="menuBar" class="col-md-10">
-                                <ul >
-                                    <ui:repeat var="orginalMenuItems" >
-                                        <li id="#{orginalMenuItems.idName}"  class="#{orginalMenuItems.cssClassName}" role="presentation" onclick="selectionItem('#{orginalMenuItems.idName}')">
-                                            <h:graphicImage library="images" name="#{orginalMenuItems.iconName}" title="#{orginalMenuItems.menuTitle}" styleClass="nav-bar-icon"/>
-                                            <h:outputLabel value="#{orginalMenuItems.menuTitle}" title="#{orginalMenuItems.menuTitle}"/>
-                                        </li>
-                                    </ui:repeat>
-                                    <li id="homeMenuItem" class="activeItem"  onclick="selectionItem('homeMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_home.png" title="test1" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Home" title="home"/>
-                                    </li>
-                                    <li id="accountsMenuItem" role="presentation" onclick="selectionItem('accountsMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_business_user.png" title="test2" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Account" title="Accunts"/>
-                                    </li>
-                                    <li id="medicineMenuItem" role="presentation" onclick="selectionItem('medicineMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_black_user.png" title="test3" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Medicine" title="Medicine"/>
-                                    </li>
-                                    <li id="financialMenuItem" role="presentation" onclick="selectionItem('financialMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_business_users_add.png" title="test3" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Financial" title="Financial"/>
-                                    </li>
-                                    <li id="scrumMenuItem" role="presentation" onclick="selectionItem('scrumMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_application.png" title="test3" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Scrum" title="Scrum"/>
-                                    </li>
-                                    <li id="reportsMenuItem" role="presentation" onclick="selectionItem('reportsMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_attachment.png" title="test3" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Reports" title="Reports"/>
-                                    </li>
-                                    <li id="remindersMenuItem" role="presentation" onclick="selectionItem('remindersMenuItem');">
-                                        <h:graphicImage  library="images" name="/icons/im_business_user_info.png" title="test3" styleClass="nav-bar-icon"/>
-                                        <h:outputLabel value="Riminders" title="Reminders"/>
-                                    </li>
-                                    <ui:insert name="menuPanel"/>
-                                </ul>
-                            </nav>-->
-                            <section class="col-md-2 text-right">
-                                <label id="projectNameLabel">IntelligentAssistant</label>
-                            </section>
-                        </section>
-                    </section>
-                </section>
-            </section>
-        </section>
-
-    <!--  <h1>Locale >> #{facesContextHelper.locale}</h1>-->
-    <!-- <section id ="headerMainPanel" >
-
-     </section>
-     <section id ="centerMasterPanel">
-         <div class="container-fluid">
-             <div class="row">
-                 <div class="col-md-12">
-                   <section>
-                      <section>
-                          <label id="projectNameLabel"> IntelligentAssistant :</label><label id="panelNameLabel"> <ui:insert name="panelNameLabel"/></label>
-                      </section>
-                       <ui:insert name="centerPanel"/>
-                   </section>
-                   <ui:insert name="centerExtnationPanel"/>
-                 </div>
-             </div>
-         </div>
-     </section>
-     <section id ="sideBarMainPanel" >
-         <section id="userProfileImageBar">
-             <section>
-                 <h:graphicImage id="userProfileImage" title="userImage" library="images" name="/icons/im_default.jpg"/>
-                 <br/>
-                 <h:outputLabel value="userName" />
-                 <h:outputLabel id="userProfileImageShowButton" styleClass="glyphicon glyphicon-triangle-bottom text-center"  />
-             </section>
-             <ui:insert name="profilePanel"/>
-         </section>
-         <section>
-             <nav class="nav-bar">
-                 <ul >
-                     <li class="activeItem"  onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_home.png" title="test1" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Home" title="home"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_business_user.png" title="test2" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Accunts" title="Accunts"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_black_user.png" title="test3" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Medicine" title="Medicine"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_business_users_add.png" title="test3" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Financial" title="Financial"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_application.png" title="test3" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Scrum" title="Scrum"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_attachment.png" title="test3" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Reports" title="Repotrs"/>
-                     </li>
-                     <li role="presentation" onclick="selectionItem(this);">
-                         <h:graphicImage  library="images" name="/icons/im_business_user_info.png" title="test3" styleClass="nav-bar-icon"/>
-                         <h:outputLabel value="Riminders" title="Reminders"/>
-                     </li>
-                     <ui:insert name="menuPanel"/>
-                 </ul>
-             </nav>
-         </section>
-     </section>-->
+           <section class="container-fluid">
+           	<section id="mainPanel" class="row">
+           		<div class="progress topProgress" >
+                  <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ></div>
+             	</div>
+           	 	<ui:insert name="centerPanel"/>
+           	 	<section id="watermark" class="text-right">
+              		 <label id="projectNameLabel">IntelligentAssistant</label>
+              		 <section id="timeAndDatePanel" class="pull-right text-right">
+           				<ui:insert name="infoPanelBar"/>
+                  		<h:outputText id="spnTimeAndDate"  title="#{msg.spnTimeAndDate} " value="14:50:30 pm 1365/02/08"/>          
+           			 </section>
+              	</section>
+           	</section>
+          
+           	<section id="footerPanel" class="row">
+           		<section class="col-md-8" >
+           			<section class="pull-left" >
+           				<section id="userProfileMinPanel" class="pull-left text-left" >
+           					<img id="userMinImage" src="#{request.getContextPath()}/resources/images/im_default.jpg" alt="userImage" style="width:25px;height:25px;"/>
+           					<span>UserName</span>
+           				</section>
+           				
+           			</section>
+           			<section id="menuButtonIcon" class="pull-left" onmouseleave="leveEffectAllButton();">
+           				<div class="menuItemPanel">
+           					<div id="testPanel1" class="menuItemList" onmouseleave = "closeMenuList('testPanel1');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon1" src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon1');" onclick="showMenuList('testIcon1','testPanel1');" />
+           				</div>
+           				<div class="menuItemPanel">
+           					<div id="testPanel2" class="menuItemList" onmouseleave = "closeMenuList('testPanel2');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon2" src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon2');" onclick="showMenuList('testIcon2','testPanel2');"/>
+           				</div>
+           				<div class="menuItemPanel">
+           					<div id="testPanel3" class="menuItemList" onmouseleave = "closeMenuList('testPanel3');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon3" src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon3');" onclick="showMenuList('testIcon3','testPanel3');"/>
+           				</div>
+           				<div class="menuItemPanel">
+           					<div id="testPanel4" class="menuItemList" onmouseleave = "closeMenuList('testPanel4');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon4" src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon4');" onclick="showMenuList('testIcon4','testPanel4');"/>
+           				</div>
+           				<div class="menuItemPanel">
+           					<div id="testPanel5" class="menuItemList" onmouseleave = "closeMenuList('testPanel5');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon5"  src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon5');" onclick="showMenuList('testIcon5','testPanel5');"/>
+           				</div>
+           				<div class="menuItemPanel">
+           					<div id="testPanel6" class="menuItemList" onmouseleave = "closeMenuList('testPanel6');">
+           						<ul>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           							<li>Item One</li>
+           						</ul>
+           					</div>
+           					<img id="testIcon6" src="#{request.getContextPath()}/resources/images/icons/ci_about.png" 
+           							onmouseenter="menuButtonHover('testIcon6');" onclick="showMenuList('testIcon6','testPanel6');"/>
+           				</div>
+           				
+					</section>
+           		</section>
+           		<section id="systemToolsPanel" class="col-md-4 pull-right">
+           				<ui:insert name="actionButtonsBar"/>
+           				<!-- <h:commandButton action="" value="logOut" title="logOut"/> -->
+                        <span class="glyphicon glyphicon-resize-full" aria-hidden="true" data-toggle="fullscreen"></span>
+           		</section>
+           	</section>
+          </section>
+      
            </h:form>
         </h:body>
     </f:view>
